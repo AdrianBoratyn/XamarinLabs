@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Laboratorium6.Views.ItemsPage"
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Dodaj" Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
+        <CollectionView x:Name="ItemsCollectionView"
+                ItemsSource="{Binding Items}">
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <StackLayout Padding="10">
+                        <Frame                       
+                            BorderColor="Orange"             
+                            CornerRadius="10"             
+                            HasShadow="True">
+                            <Grid ColumnSpacing="10"
+                                  RowSpacing="10">
+                                <Label Text="{Binding Imie} "                                                            
+                                    Grid.Column="0"  
+                                    Grid.Row="0"
+                                    FontSize="16" />
+                                <Label Text="{Binding NrAlbumu}"                                  
+                                    Grid.Column="1" 
+                                    Grid.Row="0"
+                                    FontSize="16" />
+                                <Label Text="{Binding Nazwisko}"                                                            
+                                    Grid.Column="0"  
+                                    Grid.Row="1"
+                                    FontSize="16" />
+                                <Label Text="{Binding Plec}"                                  
+                                    Grid.Column="1" 
+                                    Grid.Row="1"
+                                    FontSize="16" />
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    NumberOfTapsRequired="1" 
+                                    Tapped="OnItemSelected">
+                                </TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </StackLayout>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
