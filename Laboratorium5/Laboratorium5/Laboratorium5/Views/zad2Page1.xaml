@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Laboratorium5.Views.zad2Page1">
+    <ContentPage.Content>
+        <StackLayout
+            Spacing="40">
+            <Label Text="Page nr 1"
+                HorizontalOptions="Center" 
+                   FontSize="30"/>
+            <Button
+                x:Name="b1"
+                Text="Button 1"
+                IsEnabled="{Binding B1Enabled}"
+                CommandParameter="1"
+                Clicked="OnButtonClicked">
+            </Button>
+            <Button
+                x:Name="b2"
+                IsEnabled="{Binding B2Enabled}"
+                CommandParameter="2"
+                Text="Button 2"
+                Clicked="OnButtonClicked">
+            </Button>
+            <Button
+                x:Name="b3"
+                IsEnabled="{Binding B3Enabled}"
+                CommandParameter="3"
+                Text="Button 3"
+                Clicked="OnButtonClicked">
+            </Button>
+            <Button
+                x:Name="b4"
+                IsEnabled="{Binding B4Enabled}"
+                CommandParameter="4"
+                Text="Button 4"
+                Clicked="OnButtonClicked">
+            </Button>
+            <Button
+                x:Name="b5"
+                IsEnabled="{Binding B5Enabled}"
+                CommandParameter="5"
+                Text="Button 5"
+                Clicked="OnButtonClicked">
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
